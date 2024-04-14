@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Ex7
+{
+    public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+
+        // Estrutura de repetição para verificar se o número digitado é valido pelas regras do exercício
+        int numero;
+        do {
+            System.out.print("Digite um número entre 1 e 49: ");
+            numero = scanner.nextInt();
+        } while (numero <= 0 || numero >= 50);
+
+        int[][] matrizX = new int[numero][numero];
+        int[][] matrizZ = new int[numero][numero];
+        int[][] matrizSoma = new int[numero][numero];
+
+        // Preencher as matrizes
+        for (int i = 0; i < numero; i++) {
+            for (int j = 0; j < numero; j++) {
+                matrizX[i][j] = i + 1;
+                matrizZ[i][j] = j + 1;
+                matrizSoma[i][j] = matrizX[i][j] + matrizZ[i][j];
+            }
+        }
+
+        // Exibir as matrizes
+        System.out.println("Matriz X:");
+        exibirMatriz(matrizX);
+        System.out.println("Matriz Z:");
+        exibirMatriz(matrizZ);
+        System.out.println("Matriz Soma:");
+        exibirMatriz(matrizSoma);
+    }
+
+    // Método para exibir uma matriz
+    public static void exibirMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print("[" + matriz[i][j] + "]");
+            }
+            System.out.println();
+        }
+    }
+}
